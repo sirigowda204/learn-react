@@ -16,20 +16,16 @@ export default function RecipeList() {
   return (
     <div>
       <h1>Recipes</h1>
-      {recipes.map(recipe) => {
-        <div key={recipe.name}>
-          <h1>{recipe.name}</h1>
-          {
-            <ul key = {recipes.name}>{
-              Array.from(recipe.ingredients).map((ingredient, index))
-              <li key = {ingredient+index}>
-                {ingredient}
-              </li>
-            })}
-            </ul>
-          }
-        </div>  
-      })}
-    </div>)
+      {recipes.map(recipe => (
+        <div key={recipe.id}>
+          <h2>{recipe.name}</h2>
+          <ul>
+            {Array.from(recipe.ingredients).map((ingredient, index) => (
+              <li key={recipe.id + '-ingredient-' + index}>{ingredient}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
   );
 }
